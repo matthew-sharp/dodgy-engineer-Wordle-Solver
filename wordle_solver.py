@@ -2,7 +2,7 @@ def badLetters(result, guess):
     """Finds incorrect letters in word"""
     bad_letters = []
     for i in range(0, 5):
-        if result[i] == "w":
+        if result[i] == "b":
             bad_letters.append(guess[i])
     return bad_letters
 
