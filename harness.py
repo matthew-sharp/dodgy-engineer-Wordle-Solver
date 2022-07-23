@@ -9,7 +9,7 @@ def wordleSolver(possible_words, answer):
     diff = (date.today() - date(2021, 6, 19)).days
     #del possible_words[0: diff]
     #print(possible_words)
-    guess = wordle_solver.bestWord(possible_words, wordle_solver.letterFreq(possible_words))
+    guess = "slate"
     print(guess)
     result = "".join(marker.mark(guess, answer))
     counter = 1
