@@ -133,34 +133,3 @@ def bestWord(possible_words, frequencies):
             best_word = w
     return best_word
 
-def wordleSolver(possible_words):
-    """Prompts you to solve Wordle"""
-    print("Welcome to the Wordle Solver!")
-    print("The suggested starting word is:", bestWord(possible_words, letterFreq(possible_words)))
-    from datetime import date
-    diff = (date.today() - date(2021, 6, 19)).days
-    #del possible_words[0: diff]
-    #print(possible_words)
-    print("Enter your first guess:")
-    guess = input()
-    print("Enter your first result:")
-    result = input()
-    counter = 1
-    while result != "ggggg" and counter < 6:
-        possible_words = word_remover(result, guess, possible_words)
-        print(possible_words)
-        if len(possible_words) == 0:
-            break
-        suggestion = bestWord(possible_words, letterFreq(possible_words))
-        print("The suggested word is:", suggestion)
-        print("Enter your next guess:")
-        guess = input()
-        print("Enter your new result:")
-        result = input()
-        counter += 1
-    if len(possible_words) == 0:
-        print("Oh no! You made a mistake entering one of your results. Please try again.")
-    elif counter == 6 and result != "ggggg":
-        print("Number of guesses exceeded, sorry we failed!")
-    else:
-        print("Congratulations! We solved today's Wordle in", counter, "guesses.")
