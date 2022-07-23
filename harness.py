@@ -15,12 +15,11 @@ def wordleSolver(possible_words, answer):
     counter = 1
     while result != "ggggg":
         possible_words = wordle_solver.word_remover(result, guess, possible_words)
-        if len(possible_words) == 0:
-            return counter
         guess = wordle_solver.bestWord(possible_words, wordle_solver.letterFreq(possible_words))
         print(guess)
         result = "".join(marker.mark(guess, answer))
         counter += 1
+    return counter
 
 
 # List of possible words
